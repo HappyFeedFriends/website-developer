@@ -2,6 +2,7 @@
   "name": "website-developer",
   "version": "0.1.0",
   "private": true,
+  "repository": "https://github.com/HappyFeedFriends/website-developer.git",
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.1",
     "@testing-library/jest-dom": "^5.14.1",
