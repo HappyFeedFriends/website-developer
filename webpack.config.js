@@ -8,9 +8,13 @@ require('dotenv').config();
 
 const tsConfigPath = path.resolve(__dirname, './tsconfig.webpack.json');
 
+const config = require('./util/config');
+const isDev = config.isDev;
+const mode = isDev ? 'development' : 'production';
+
 module.exports = {
   entry: './src/client/index.tsx',
-  mode: process.env.NODE_ENV,
+  mode,
   devServer: {
     static: {
       directory: `./build/`,
@@ -37,7 +41,6 @@ module.exports = {
             },
           },
         ],
-        exclude: /node_modules\/(?!middleware-axios).*/,
       },
       {
         test: /\.scss$/,
@@ -56,10 +59,17 @@ module.exports = {
           'sass-loader',
         ],
       },
+      {
+        test: /\.(png|jpg|jpeg|gif|webp)$/,
+        type: 'asset',
+        generator: {
+          filename: `images/[name].[hash].[ext]`,
+        },
+      },
     ],
   },
   output: {
-    filename: 'bundle.js',
+    filename: '[id]/bundle.[name].[hash].js',
     path: path.resolve(__dirname, 'build'),
   },
 

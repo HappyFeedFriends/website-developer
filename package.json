@@ -5,18 +5,18 @@
   "repository": "https://github.com/HappyFeedFriends/website-developer.git",
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.1",
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^12.0.0",
-    "@testing-library/user-event": "^13.2.1",
+    "classnames": "^2.3.1",
     "dotenv": "^11.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-saga": "^1.1.3",
     "typescript": "^4.4.2"
   },
   "scripts": {
     "dev": "webpack serve",
-    "build": "react-scripts build",
+    "build": "rm -fr build && webpack",
     "eject": "react-scripts eject",
     "prettier:lint": "prettier './src/*/**'"
   },
@@ -48,7 +48,6 @@
     "mini-css-extract-plugin": "^2.5.0",
     "postcss-loader": "^6.2.1",
     "prettier": "^2.5.1",
-    "redux-devtools-extension": "^2.13.9",
     "sass-loader": "^12.4.0",
     "ts-loader": "^9.2.6",
     "typescript-plugin-css-modules": "^3.4.0",
