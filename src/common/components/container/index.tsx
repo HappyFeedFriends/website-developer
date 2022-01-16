@@ -34,7 +34,6 @@ export const Container: React.FC<ContainerProps> = ({
       isReverse && 'reverse',
     )}
   >
-    {console.log(children)}
     {children}
   </div>
 );

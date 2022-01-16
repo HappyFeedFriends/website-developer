@@ -2,10 +2,12 @@ import React from 'react';
 import classnames from 'classnames/bind';
 import styles from './programs-list.scss';
 import { Container } from '../../../common/components/container';
+import { Tooltip } from '@mui/material';
 
 interface ProgramData {
   id: number;
   icon: string;
+  name: string;
   onClick: () => void;
 }
 
@@ -16,11 +18,13 @@ interface ProgramsListProps {
 const cx = classnames.bind(styles);
 
 export const ProgramsList: React.FC<ProgramsListProps> = ({ items }) => (
-    <Container>
-      {items.map(({ icon, onClick, id }) => (
+  <Container>
+    {items.map(({ icon, onClick, id, name }) => (
+      <Tooltip title={name} placement='top' arrow >
         <div className={cx('program')} onClick={onClick} key={id}>
           <img src={icon} alt="" />
         </div>
-      ))}
-    </Container>
+      </Tooltip>
+    ))}
+  </Container>
 );
