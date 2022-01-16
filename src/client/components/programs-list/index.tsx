@@ -20,8 +20,8 @@ const cx = classnames.bind(styles);
 export const ProgramsList: React.FC<ProgramsListProps> = ({ items }) => (
   <Container>
     {items.map(({ icon, onClick, id, name }) => (
-      <Tooltip title={name} placement='top' arrow >
-        <div className={cx('program')} onClick={onClick} key={id}>
+      <Tooltip title={name} placement='top' arrow key={id} >
+        <div className={cx('program')} onClick={onClick}>
           <img src={icon} alt="" />
         </div>
       </Tooltip>
